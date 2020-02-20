@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Prikaz";
+}
+@model PopravniIspitPrikazVM
+
+<h2>Popravni ispit za @Model.Predmet - @Model.Skola - @Model.SkolskaGodina</h2>
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>
+                Datum popravnog
+                ispita
+            </th>
+            <th>1 član komisije</th>
+            <th>
+                Broj učenika na
+                popravnom
+                ispitu **
+            </th>
+            <th>
+                Broj učenika koji su položili
+                popravni ispit (bodovi veći
+                od 50) **
+            </th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.PopravniIspitId</td>
+                <td>@x.Datum</td>
+                <td>@x.ClanKomisije</td>
+                <td>@x.BrojUcenika</td>
+                <td>@x.BrojPolozenih</td>
+                <td><a asp-action="Uredi" asp-route-PopravniIspitId="@x.PopravniIspitId">Uredi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a asp-action="Dodaj" asp-route-PodaciId="@Model.OpstiPodaciPPId" class="btn btn-primary">Dodaj</a>
+

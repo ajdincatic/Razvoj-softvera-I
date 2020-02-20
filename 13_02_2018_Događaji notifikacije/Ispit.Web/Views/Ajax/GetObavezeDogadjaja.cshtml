@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "GetObavezeDogadjaja";
+}
+@model AjaxGetObavezeDogadjajaVM
+
+<h2>Obaveze događaja</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>
+                Procenat realizacije
+                obaveze
+            </th>
+            <th>
+                Personalna
+                vrijednost za:
+                Šalji notifikaciju x dana
+                unaprijed
+            </th>
+            <th>
+                Personalna
+                vrijednost za:
+                Ponavljaj notifikaciju svaki dan do
+                početka događaja
+            </th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Naziv</td>
+                <td>@x.ProcenatRealizacije%</td>
+                <td>@x.VrijemeZaNotifikaciju</td>
+                <td>@(@x.SaljiRekurzivno?"DA":"NE")</td>
+                <td><a ajax-poziv="da" ajax-rezultat="Ajax-div" asp-action="Uredi" asp-route-StanjeObavezeId="@x.StanjeObavezeId">Uredi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

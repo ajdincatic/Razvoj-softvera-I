@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Prikaz";
+}
+@model OdrzanaNastavaPrikazVM
+
+<table class="table-bordered table text-center">
+    <thead>
+        <tr>
+            <th>Datum održanog časa</th>
+            <th>Škola</th>
+            <th>Školska godina / Odjeljenje</th>
+            <th>Predmet</th>
+            <th>Odsutni učenici</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Datum</td>
+                <td>@x.Skola</td>
+                <td>@x.SkGodina / @x.Odjeljenje</td>
+                <td>@x.Predmet</td>
+                <td>
+                    @foreach (var y in x.Odsutni)
+                    {
+                        <span>@y, </span>
+                    }
+                </td>
+                <td><a asp-action="Detalji" asp-route-OdrzaniCasId="@x.OdrzaniCasId">Detalji</a> | <a asp-action="Obrisi" asp-route-OdrzaniCasId="@x.OdrzaniCasId">Obriši</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a class="btn btn-primary" asp-action="Dodaj" asp-route-NastavnikId="@Model.NastavnikId">Dodaj</a>
+

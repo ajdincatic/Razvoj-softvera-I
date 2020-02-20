@@ -1,0 +1,44 @@
+﻿@using Ispit_2017_09_11_DotnetCore.VM;
+@{
+    ViewData["Title"] = "Detalji";
+}
+@model OdjeljenjeDetaljiVM
+
+<h2>Detalji odjeljenja</h2>
+<a asp-action="RekonstruisiBrojeveDnevnika" asp-controller="Odjeljenje" asp-route-Id="@Model.OdjeljenjeId" class="btn btn-primary">Rekonstruiši</a>
+<form action="/" method="post">
+    <div class="form-row">
+        <label asp-for="OdjeljenjeId">OdjeljenjeId : </label>
+        <input class="form-control" asp-for="OdjeljenjeId" readonly/>
+    </div>
+    <div class="form-row">
+        <label asp-for="SkolskaGodina">Skolska godina : </label>
+        <input class="form-control" asp-for="SkolskaGodina" readonly/>
+    </div>
+    <div class="form-row">
+        <label asp-for="Razred">Razred : </label>
+        <input class="form-control" asp-for="Razred" readonly/>
+    </div>
+    <div class="form-row">
+        <label asp-for="Oznaka">Oznaka : </label>
+        <input class="form-control" asp-for="Oznaka" readonly/>
+    </div>
+    <div class="form-row">
+        <label asp-for="Razrednik">Razrednik : </label>
+        <input class="form-control" asp-for="Razrednik" readonly/>
+    </div>
+    <div class="form-row">
+        <label asp-for="BrojPredmeta">BrojPredmeta : </label>
+        <input class="form-control" asp-for="BrojPredmeta" readonly/>
+    </div>
+</form>
+
+<div id="ajaxDiv"></div>
+
+<script>
+    $(function () {
+        $.get("/AjaxTest/GetOdjeljenjaStavke?Id=@Model.OdjeljenjeId", function (data) {
+            $('#ajaxDiv').html(data);
+        });
+    });
+</script>

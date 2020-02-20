@@ -1,0 +1,37 @@
+﻿@using Ispit_2017_09_11_DotnetCore.VM;
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<OdjeljenjeIndexVM>
+
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>Školska godina</th>
+            <th>Razred(1 do 4)</th>
+            <th>Oznaka</th>
+            <th>Razrednik</th>
+            <th>Prebacen u vise odjeljenje</th>
+            <th>Prosjek ocjena</th>
+            <th>Najbolji ucenik</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.SkolskaGodina</td>
+                <td>@x.Razred</td>
+                <td>@x.Oznaka</td>
+                <td>@x.Razrednik</td>
+                <td>@(@x.IsPrebacen?"DA":"NE")</td>
+                <td>@x.Prosjek</td>
+                <td>@x.NajUcenik</td>
+                <td><a asp-action="Detalji" asp-route-Id="@x.OdId">Detalji</a> | <a asp-action="Obrisi" asp-route-Id="@x.OdId">Obrisi</a></td>
+            </tr>
+        }
+    </tbody>   
+</table>
+<br />
+<a asp-action="Dodaj" class="btn btn-primary">Dodaj</a>

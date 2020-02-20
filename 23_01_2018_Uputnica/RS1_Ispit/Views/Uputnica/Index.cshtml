@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<UputnicaIndexVM>
+
+<h2>Prikaz evidentiranih uputnica</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Uputio</td>
+            <td>Pacijent</td>
+            <td>Vrsta pretraga</td>
+            <td>
+                Datum evidentiranja
+                rezultata pretrage
+            </td>
+            <td>Akcija</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.DatumUputnice | @x.Ljekar</td>
+                <td>@x.Pacijent</td>
+                <td>@x.VrstaPretraga</td>
+                <td>@x.DatumEvidentiranja</td>
+                <td><a asp-action="Detalji" asp-route-UputnicaId="@x.UputnicaId">Detalji</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a asp-action="Dodaj" class="btn btn-primary">Dodaj</a>

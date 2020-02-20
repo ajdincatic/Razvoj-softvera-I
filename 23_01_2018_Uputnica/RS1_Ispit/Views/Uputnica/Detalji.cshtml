@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Detalji";
+}
+@model UputnicaDetaljiVM
+<h2>Podaci o uputnici</h2>
+<div>
+    <label>Datum uputnice : </label>
+    <span>@Model.DatumUputnice</span>
+    <br />
+    <label>Pacijent : </label>
+    <span>@Model.Pacijent</span>
+    <br />
+    <label>Datum rezultata : </label>
+    <span>@Model.DatumRezultata</span>
+    <br />
+    <label>Završen unos : </label>
+    @if (!Model.IsZavrsen)
+    {
+        <a asp-action="Zakljucaj" asp-route-UputnicaId="@Model.UputnicaId" class="btn btn-danger">Zaključaj</a>
+    }
+    else
+    {
+        <span>ZAKLJUČANO</span>
+    }
+</div>
+<br />
+<br />
+<div id="ajaxDiv" style="border:1px solid black; padding:10px;"></div>
+
+<script>
+    $(function () {
+        $.get("/Ajax/GetRezultatiPretrage?UputnicaId=@Model.UputnicaId", function (data) {
+            $("#ajaxDiv").html(data);
+        });
+    });
+</script>

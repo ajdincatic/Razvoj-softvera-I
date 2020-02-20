@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Notifikacije";
+}
+@model List<AjaxNotifikacijeVM>
+
+@if (Model != null)
+{
+    @foreach (var x in Model)
+    {
+        <div class="alert alert-warning" role="alert">
+            <strong>Događaj "@x.Dogadjaj" - @x.DatumDogadjaja</strong> <br />
+            ovo je podsjetnik za obavezu "@x.Aktivnost". označi kao <a href="" class="">pročitanu.</a>
+        </div>
+    }
+}
+
+

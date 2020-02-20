@@ -1,0 +1,35 @@
+﻿@using Ispit_2017_09_11_DotnetCore.VM;
+@{
+    ViewData["Title"] = "OdjeljenjaStavke";
+}
+@model AjaxOdjeljenjaStavkeVM
+
+<h2>Odjeljenja stavke</h2>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <td>Odjeljenje ID</td>
+            <td>Broj u dnevniku</td>
+            <td>Učenik</td>
+            <td>Broj zakljucnih ocjena (kraj godine)</td>
+            <td>Akcija</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@Model.OdjeljenjeId</td>
+                <td>@x.BrojUDnevniku</td>
+                <td>@x.Ucenik</td>
+                <td>@x.BrojZakljucniOcjena</td>
+                <td><a href="#">Obriši</a> | <a href="#">Uredi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a ajax-poziv="da" ajax-rezultat="ajaxDiv" asp-action="Dodaj" asp-route-odjeljenjeId="@Model.OdjeljenjeId" class="btn btn-primary">Dodaj</a>
+
+

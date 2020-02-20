@@ -1,0 +1,45 @@
+﻿
+@model AjaxMaturskiIspitStavkeVM
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Učenik</th>
+            <th>
+                Prosjek
+                ocjena
+            </th>
+            <th>
+                Pristupio
+                ispitu
+            </th>
+            <th>
+                Rezultat maturskog
+                (max 100)
+            </th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Ucenik</td>
+                <td>@x.Prosjek</td>
+                <td>
+                    <a style="padding:5px; color:white; background-color:@(x.Pristupio ? "green" : "red")"
+                       asp-action="@(x.Pristupio ? "UcenikJeOdsutan" : "UcenikJePrisutan")" asp-route-StavkaId="@x.StavkaId">
+                       @(x.Pristupio ? "DA" : "NE")</a>
+                </td>
+                <td>
+                    <form ajax-poziv="da" ajax-rezultat="ajaxDiv" action="/Ajax/UpdateBodova">
+                        <input type="hidden" name="StavkaId" value="@x.StavkaId"/>
+                        <input style="text-align:center;"  type="text" name="Bodovi" value="@x.Bodovi"/>
+                        <input style="visibility:hidden;" type="submit"/>
+                    </form>
+                </td>
+                <td><a ajax-poziv="da" ajax-rezultat="ajaxDiv" asp-action="Uredi" asp-route-StavkaId="@x.StavkaId">Uredi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

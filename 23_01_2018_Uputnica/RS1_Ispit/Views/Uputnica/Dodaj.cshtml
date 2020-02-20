@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Dodaj";
+}
+@model UputnicaDodajVM
+<h2>Nova uputnica</h2>
+
+<form asp-action="Snimi">
+    <label>Ljekar uputio : </label>
+    <select asp-for="LjekarId" asp-items="@Model.Ljekari"></select>
+    <br />
+    <label>Datum uputnice : </label>
+    <input asp-for="DatumUputnice"/>
+    <span asp-validation-for="DatumUputnice" class="text-danger"></span>
+    <br />
+    <label>Pacijent : </label>
+    <select asp-for="PacijentId" asp-items="@Model.Pacijenti"></select>
+    <br />
+    <label>Vrsta pretrage : </label>
+    <select asp-for="VrstaPretrageId" asp-items="@Model.VrstePretrage"></select>
+    <br />
+    <input type="submit" value="Snimi"/>
+</form>
+

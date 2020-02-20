@@ -1,0 +1,16 @@
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.deps.json
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.pdb
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.csprojAssemblyReference.cache
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfoInputs.cache
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfo.cs
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.pdb
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.deps.json
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.pdb
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.csprojAssemblyReference.cache
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfoInputs.cache
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfo.cs
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\Ajdin\Desktop\FIT\RS1\ispit\Razvoj-softvera-1-master\Rađeno\13_02_2018_PocetniProjekt_notifikacije\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.pdb

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Uredi";
+}
+@model AjaxUrediVM
+<h2>Evidentiranje stanja obaveza</h2>
+
+<form action="/Ajax/Snimi" ajax-rezultat="Ajax-div" ajax-poziv="da">
+    <input type="hidden" asp-for="ObavezaID"/>
+    <input type="hidden" asp-for="OznaceniDogadjajID"/>
+    <input type="hidden" asp-for="StanjeObavezeID"/>
+    <label>Obaveza : </label>
+    <span>@Model.Naziv</span>
+    <br />
+    <label asp-for="IzvrsenoProcentualno">Završeno procentualno : </label>
+    <input asp-for="IzvrsenoProcentualno" min="0" max="100"/> %
+    <br />
+    <input type="submit" name="name" value="Snimi" />
+</form>
+

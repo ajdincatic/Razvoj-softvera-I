@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+}
+
+@model OznaceniDogadjajDetaljiVM
+
+<h2>Podaci o događaju</h2>
+<br />
+<div class="container">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Datum događaja</td>
+                <td>@Model.DatumDogadjaja</td>
+            </tr>
+            <tr>
+                <td>Datum dodavanja</td>
+                <td>@Model.DatumDodavanja</td>
+            </tr>
+            <tr>
+                <td>Opis događaja</td>
+                <td>@Model.Opis</td>
+            </tr>
+            <tr>
+                <td>Nastavnik</td>
+                <td>@Model.Nastavnik</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
+<div id="Ajax-div" style="border:1px black solid; padding:10px;"></div>
+
+<script>
+    $(function () {
+        $.get("/Ajax/GetObavezeDogadjaja?OznacenDogadjajId=@Model.OznacenDogadjajId", function (data) {
+            $("#Ajax-div").html(data);
+        });
+    });
+</script>

@@ -1,0 +1,30 @@
+﻿@using Ispit_2017_09_11_DotnetCore.VM;
+@{
+    ViewData["Title"] = "Dodaj";
+}
+@model OdjeljenjeDodajVM
+
+<h2>Novo odjeljenje</h2>
+
+<form asp-action="Snimi" method="post">
+    <label asp-for="SkolskaGodina">Skolska godina : </label>
+    <input asp-for="SkolskaGodina" />
+    <br />
+    <label asp-for="Razred">Razred : </label>
+    <input asp-for="Razred" />
+    <br />
+    <label asp-for="Oznaka">Oznaka : </label>
+    <input asp-for="Oznaka" />
+    <br />
+    <label asp-for="Razrednici">Razrednici : </label>
+    <select asp-for="RazrednikId" asp-items="@Model.Razrednici">
+    </select>
+    <br />
+    <label asp-for="NizaOdjeljenja">Preuzmi ucenike iz nizeg odjeljenja : </label>
+    <select asp-for="OdjeljenjeId" asp-items="@Model.NizaOdjeljenja">
+        <option>Odaberite odjeljenje</option>
+    </select>
+    <br />
+    <input type="submit" name="name" value="Snimi" class="btn btn-primary"/>
+</form>
+

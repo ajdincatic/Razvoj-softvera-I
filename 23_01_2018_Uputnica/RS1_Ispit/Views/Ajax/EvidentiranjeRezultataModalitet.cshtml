@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "EvidentiranjeRezultataModalitet";
+}
+@model AjaxUrediModVM
+<h2>Evidentiranje rezultata</h2>
+
+<form action="/Ajax/SnimiMod" ajax-poziv="da" ajax-rezultat="ajaxDiv">
+    <input type="hidden" asp-for="RezultatiPretrageId" />
+    <label>Pretraga : </label>
+    <span>@Model.Pretraga</span>
+    <br />
+    <label>Vrijednost : </label>
+    <select asp-for="VrijednostId" asp-items="@Model.Vrijednosti"></select>
+    <br />
+    <input type="submit" value="Snimi" />
+</form>

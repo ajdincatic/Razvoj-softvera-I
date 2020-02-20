@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Detalji";
+}
+@model OdrzanaNastavaDetaljiVM
+
+<form>
+    <label>Datum</label>
+    <input asp-for="Datum" readonly class="form-control"/>
+    <label>Skola/Odjeljenje/Predmet</label>
+    <input asp-for="Skola_Odjeljenje_Predemet" readonly class="form-control"/>
+    <label>Sadržaj časa</label>
+    <textarea asp-for="SadrzajCasa" readonly class="form-control"></textarea>
+</form>
+<br />
+<div id="ajax" style="border:1px solid black; padding:10px;"></div>
+<script>
+    $(function () {
+        $.get("OdrzaniCasStavke?OdrzaniCasId=@Model.OdrzaniCasId", function (data) {
+            $("#ajax").html(data);
+        })
+    })
+</script>
+

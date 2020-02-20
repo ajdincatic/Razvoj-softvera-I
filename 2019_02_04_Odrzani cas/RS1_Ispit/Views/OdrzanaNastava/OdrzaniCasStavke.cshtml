@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "OdrzaniCasStavke";
+}
+@model OdrzaniCasStavkeVM
+
+<table class="table-bordered table text-center">
+    <thead>
+        <tr>
+            <th>Učenik</th>
+            <th>Ocjena</th>
+            <th>Prisutan</th>
+            <th>
+                Opravdano
+                odsutan
+            </th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Ucenik</td>
+                @if (x.Prisutan)
+                {
+                    <td>
+                    <form action="UpdateBodova">
+                        <input type="hidden" name="Id" value="@x.StavkaId"/>
+                        <input style="text-align:center;" type="number" name="Ocjena" value="@x.Ocjena"/>
+                        <input type="submit" value="Snimi"/>
+                    </form>
+                </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                <td>
+                    <a style="background-color:@(@x.Prisutan ? "green" : "red"); color:white; padding:5px;"
+                       ajax-poziv='da' ajax-rezultat="ajax" href="@(@x.Prisutan ? "UcenikJeOdsutan" : "UcenikJePrisutan")?StavkaId=@x.StavkaId"
+                       >@(@x.Prisutan ? "Prisutan" : "Odsutan")</a>
+                </td>
+                @if (x.Prisutan)
+                {
+                    <td></td>
+                    <td><a ajax-poziv='da' ajax-rezultat="ajax" asp-action="UrediPrisutan" asp-route-StavkaId="@x.StavkaId">Uredi</a></td>
+                }
+                else
+                {
+                    <td>@(@x.Opravdano ? "DA" : "NE")</td>
+                    <td><a ajax-poziv='da' ajax-rezultat="ajax" asp-action="UrediOdsutan" asp-route-StavkaId="@x.StavkaId">Uredi</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+

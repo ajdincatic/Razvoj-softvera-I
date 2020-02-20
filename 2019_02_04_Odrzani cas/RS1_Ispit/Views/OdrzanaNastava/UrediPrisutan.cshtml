@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "UrediPrisutan";
+}
+
+@model UrediPrisutanVM
+
+<form asp-action="SnimiPrisutan">
+    <input type="hidden" asp-for="StavkaId"/>
+    <label>Ucenik:</label>
+    <span>@Model.Ucenik</span>
+    <br />
+    <label>Ocjena:</label>
+    <input asp-for="Ocjena" class="form-control"/>
+    <br />
+    <input type="submit" value="Snimi" class="btn btn-primary"/>
+</form>

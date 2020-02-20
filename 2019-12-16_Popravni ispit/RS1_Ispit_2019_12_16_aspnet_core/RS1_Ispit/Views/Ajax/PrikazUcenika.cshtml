@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "PrikazUcenika";
+}
+@model AjaxPrikazUcenikaVM
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Učenik</th>
+            <th>Odjeljenje</th>
+            <th>
+                Broj u
+                dnevniku
+            </th>
+            <th>
+                Pristupio
+                ispitu
+            </th>
+            <th>
+                Rezultat maturskog
+                (max 100)
+            </th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Ucenik</td>
+                <td>@x.Odjeljenje</td>
+                <td>@x.BrojUDnevniku</td>
+                @if (x.MozePristupiti)
+                {
+                    <td><a asp-action="@(x.PristupioIspitu ? "UcenikJeOdsutan" : "UcenikJePrisutan")" 
+                          asp-route-PopravniStavkaId="@x.PopravniStavkaId" style="color:white; padding:2px; background-color:@(x.PristupioIspitu ? "green" : "red");">
+                        @(x.PristupioIspitu ? "DA" : "NE")</a></td>
+                }
+                else
+                {
+                    <td style="color:red;">
+                        Nema pravo na popravni
+                    </td>
+                }
+                <td>@x.BrojBodova</td>
+                <td><a asp-action="Uredi" asp-route-PopravniStavkaId="@x.PopravniStavkaId" ajax-poziv="da" ajax-rezultat="ajaxDiv">Uredi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Dodaj";
+}
+@model PopravniIspitDodajVM
+<h2>Dodavanje popravnog ispita</h2>
+
+<form asp-action="Snimi">
+    <input type="hidden" asp-for="@Model.OpstiPodaciId"/>
+    <label>1. član komisije: </label>
+    <select class="form-control" asp-for="ClanKomisije1Id" asp-items="@Model.Nastavnici"></select>
+    <label>2. član komisije: </label>
+    <select class="form-control" asp-for="ClanKomisije2Id" asp-items="@Model.Nastavnici"></select>
+    <label>3. član komisije: </label>
+    <select class="form-control" asp-for="ClanKomisije3Id" asp-items="@Model.Nastavnici"></select>
+    <label>Datum: </label>
+    <input asp-for="Datum" class="form-control" />
+    <br />
+    <p>Škola: @Model.Skola</p>
+    <br />
+    <p>Školska godina: @Model.SkolskaGodina</p>
+    <br />
+    <p>Predmet: @Model.Predmet</p>
+    <br />
+    <input type="submit" value="Snimi" class="btn btn-primary" />
+</form>
+

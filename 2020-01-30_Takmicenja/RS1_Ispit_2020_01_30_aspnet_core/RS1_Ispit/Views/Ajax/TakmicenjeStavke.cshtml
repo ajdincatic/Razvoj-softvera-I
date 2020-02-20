@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "TakmicenjeStavke";
+}
+@model AjaxTakmicenjeStavkeVM
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Odjeljenje</th>
+            <th>
+                Broj u
+                dnevniku
+            </th>
+            <th>Pristupio</th>
+            <th>
+                Rezultat bodovi
+                (max 100)
+            </th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.Odjeljenje</td>
+                <td>@x.BrojUDnevniku</td>
+                @if (Model.Zakljucano)
+                {
+                    <td>
+                        <a style="color:white; padding:5px; background-color:@(x.IsPristupio ? "green" : "red")"
+                            >@(x.IsPristupio ? "DA" : "NE")</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a style="color:white; padding:5px; background-color:@(x.IsPristupio ? "green" : "red")"
+                           asp-action="@(x.IsPristupio ? "UcesnikNijePristupio" : "UcesnikJePristupio")" asp-route-StavkaId="@x.StavkaId"
+                           >@(x.IsPristupio ? "DA" : "NE")</a>
+                    </td>
+                }
+                
+                @if (Model.Zakljucano)
+                {
+                    <td><input style="text-align:center; background-color:lightgray" value="@x.Bodovi" readonly/></td>
+                    <td></td>
+                }
+                else
+                {
+                    <td>
+                        <form id="forma-@x.StavkaId" ajax-poziv="da" ajax-rezultat="ajaxDiv" action="/Ajax/UpdateBodova">
+                            <input type="hidden" name="StavkaId" value="@x.StavkaId"/>
+                            <input id="bodovi-@x.StavkaId" style="text-align:center;" value="@x.Bodovi" name="Bodovi"/>
+                            <input type="submit" style="visibility:hidden;"/>
+                        </form>
+                        <script>
+                            $("#bodovi-@x.StavkaId").change(function () {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Ajax/UpdateBodova",
+                                    data: $("#forma-@x.StavkaId").serialize(),
+                                    success: function (data) {
+                                        $("#bodovi-@x.StavkaId").html(data);
+                                    }
+                                });
+                            });
+                        </script>
+                    </td>
+                    <td><a ajax-poziv="da" ajax-rezultat="ajaxDiv" asp-action="Uredi" asp-route-StavkaId="@x.StavkaId">Uredi</a></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary" asp-action="Dodaj" asp-route-TakmicenjeId="@Model.TakmicenjeId">Dodaj učesnika</a>

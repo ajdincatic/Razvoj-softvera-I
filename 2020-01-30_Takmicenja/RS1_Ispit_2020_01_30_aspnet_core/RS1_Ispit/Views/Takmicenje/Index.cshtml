@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model TakmicenjeIndexVM
+
+<br />
+
+<form asp-action="Prikaz">
+    <label>Škola domaćin: </label>
+    <select class="form-control" asp-for="SkolaDomacinId" asp-items="@Model.Skole"></select>
+    <label>Razred: </label>
+    <select class="form-control" asp-for="Razred">
+        <option value="0">(Odaberite razred)</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <br />
+    <input class="btn btn-primary" type="submit" value="Odaberi"/>
+</form>
+
+

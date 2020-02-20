@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "GetRezultatiPretrage";
+}
+@model List<AjaxGetRezultatiPretrageVM>
+
+<h2>Rezultati Pretrage</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Pretraga</td>
+            <td>Izmjerena vrijednost</td>
+            <td>JMJ</td>
+            <td>Akcija</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Pretraga</td>
+                @if(x.Modalitet=="(nije evidentirano)")
+                {
+                    <td>@x.IzmjerenaVrijednost</td>
+                }
+                else
+                {
+                    <td>@x.Modalitet</td>
+                }
+                <td>@x.JMJ</td>
+                @if (!x.IsZakljucano)
+                {
+                    <td><a ajax-poziv="da" ajax-rezultat="ajaxDiv" asp-action="Uredi" asp-route-RezultatiPretrageId="@x.RezultatiPretrageId">Detalji</a></td>
+                }
+                else
+                {
+                    <td>X</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

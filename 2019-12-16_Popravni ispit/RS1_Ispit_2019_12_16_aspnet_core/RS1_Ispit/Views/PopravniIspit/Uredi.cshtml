@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Uredi";
+}
+@model PopravniIspitUrediVM
+
+<h2>Uređivanje popravnog ispita</h2>
+
+<div>
+    <p>1. Član komisije: <input value="@Model.ClanKomisije1"/> </p>
+    <p>2. Član komisije: <input value="@Model.ClanKomisije2"/> </p>
+    <p>3. Član komisije: <input value="@Model.ClanKomisije3"/> </p>
+    <p>Datum: <input value="@Model.Datum"/> </p>
+    <p>Škola: @Model.Skola</p>
+    <p>Školska godina: @Model.SkolskaGodina</p>
+    <p>Predmet: @Model.Predmet</p>
+</div>
+<div id="ajaxDiv" style="border:1px solid black; padding:10px;"></div>
+<br />
+<p>Dodaj učenika <a class="btn btn-primary" href="#">Dodaj</a></p>
+<p>Dodaj popravni ispit <a class="btn btn-primary" asp-action="Dodaj" asp-route-PodaciId="@Model.PodaciId">Dodaj</a></p>
+
+<script>
+    $(function () {
+        $.get("/Ajax/PrikazUcenika?PopravniIspitId=@Model.PopravniIspitId", function (data) {
+            $("#ajaxDiv").html(data);
+        });
+    });
+</script>

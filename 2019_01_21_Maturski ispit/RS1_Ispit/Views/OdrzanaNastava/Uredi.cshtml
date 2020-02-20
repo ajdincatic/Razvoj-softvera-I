@@ -1,0 +1,25 @@
+﻿
+@model OdrzanaNastavaUrediVM
+
+<br />
+<form asp-action="SnimiUredjeno">
+    <input type="hidden" asp-for="MaturskiIspitId"/>
+    <label>Datum: </label>
+    <input class="form-control" asp-for="Datum" readonly />
+    <label>Predmet: </label>
+    <input class="form-control" asp-for="Predmet" readonly />
+    <label>Napomena: </label>
+    <textarea class="form-control" asp-for="Napomena"></textarea>
+    <br />
+    <input type="submit" name="name" value="Snimi" />
+</form>
+<br />
+<div id="ajaxDiv" style="border:1px solid black; padding:10px;"></div>
+
+<script>
+    $(function () {
+        $.get("/Ajax/MaturskiIspitStavke?MaturskiIspitId=@Model.MaturskiIspitId", function (data) {
+            $("#ajaxDiv").html(data);
+        })
+    })
+</script>

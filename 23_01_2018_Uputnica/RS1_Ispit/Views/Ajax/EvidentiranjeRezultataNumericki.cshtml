@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "EvidentiranjeRezultataNumericki";
+}
+@model AjaxUrediNumVM
+
+<h2>Evidentiranje rezultata</h2>
+
+<form action="/Ajax/SnimiNum" ajax-rezultat="ajaxDiv" ajax-poziv="da" >
+    <input type="hidden" asp-for="RezultatiPretrageId"/>
+    <label>Pretraga : </label>
+    <span>@Model.Pretraga</span>
+    <br />
+    <label>Izmjerena vrijednost: : </label>
+    <input asp-for="IzmjerenaVrijednost"/> @Model.MjernaJedinica
+    <br />
+    <input type="submit" value="Snimi" />
+</form>

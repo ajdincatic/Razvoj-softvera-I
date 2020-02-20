@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model OznaceniDogadjajiIndexVM
+
+<div id="ajaxDiv">
+    
+</div>
+
+<h2>Neoznačeni događaji</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Datum</th>
+            <th>Nastavnik</th>
+            <th>Opis</th>
+            <th>Broj obaveza</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.neoznaceni)
+        {
+            <tr>
+                <td>@x.DogadjajId</td>
+                <td>@x.Datum</td>
+                <td>@x.Nastavnik</td>
+                <td>@x.Opis</td>
+                <td>@x.BrojObaveza</td>
+                <td><a asp-action="Dodaj" asp-route-DogadjajId="@x.DogadjajId">Dodaj</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<hr />
+<br />
+
+<h2>Označeni događaji</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Datum</th>
+            <th>Nastavnik</th>
+            <th>Opis</th>
+            <th>Relizovano obaveza RO</th>
+            <th>Akcija</th>
+    </thead>
+    <tbody>
+        @if (Model.oznaceni != null)
+        {
+            @foreach (var x in Model.oznaceni)
+            {
+                <tr>
+                    <td>@x.DogadjajId</td>
+                    <td>@x.Datum</td>
+                    <td>@x.Nastavnik</td>
+                    <td>@x.Opis</td>
+                    <td>@x.RealizovanoObavezaProcenat%</td>
+                    <td><a asp-action="Detalji" asp-route-DogadjajId="@x.DogadjajId">Detalji</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    $(function () {
+        $.get("/Ajax/Notifikacije", function (data) {
+            $("#ajaxDiv").html(data);
+        });
+    });
+</script>

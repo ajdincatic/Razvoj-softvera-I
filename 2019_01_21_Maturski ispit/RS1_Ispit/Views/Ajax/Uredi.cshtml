@@ -1,0 +1,15 @@
+﻿@model AjaxUrediVM
+
+<h3>Uredi</h3>
+
+<form action="/Ajax/Snimi" ajax-poziv="da" ajax-rezultat="ajaxDiv">
+    <input type="hidden" asp-for="MaturskiId"/>
+    <input type="hidden" asp-for="StavkaId"/>
+    <label>Ucenik: </label>
+    <span>@Model.Ucenik</span>
+    <br />
+    <label>Bodovi: </label>
+    <input asp-for="Bodovi" class="form-control"/>
+    <br />
+    <input type="submit" value="Snimi" />
+</form>

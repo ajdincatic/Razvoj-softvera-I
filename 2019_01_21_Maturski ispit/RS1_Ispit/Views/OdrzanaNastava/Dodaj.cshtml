@@ -1,0 +1,18 @@
+﻿@model OdrzanaNastavaDodajVM
+
+<h2>Dodaj</h2>
+
+<form asp-action="Snimi">
+    <input type="hidden" asp-for="NastanikId"/>
+    <label>Škola: </label>
+    <select asp-for="SkolaId" asp-items="@Model.Skole" class="form-control"></select>
+    <br />
+    <p>Nastavnik: @Model.Nastavnik</p>
+    <p>Skolska godina: @Model.SkolskaGodina</p>
+    <label>Datum ispita: </label>
+    <input asp-for="Datum" class="form-control" />
+    <label>Predmet: </label>
+    <select asp-for="PredmetId" asp-items="@Model.Predemeti" class="form-control"></select>
+    <br />
+    <input type="submit" value="Snimi" class="btn btn-primary"/>
+</form>

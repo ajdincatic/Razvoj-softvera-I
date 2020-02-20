@@ -1,0 +1,24 @@
+﻿@model MaturskiIspitIndexVM
+
+<br />
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Škola</th>
+            <th>Ime i prezime nastavnika</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.rows)
+        {
+            <tr>
+                <td>@x.NastavnikId</td>
+                <td>@x.Škola</td>
+                <td>@x.Nastavnik</td>
+                <td><a asp-action="Prikaz" asp-route-NastavnikId="@x.NastavnikId">Odaberi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

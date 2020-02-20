@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<OdrzanaNastavaIndexVM>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Ime i prezime nastavnika</th>
+            <th>Broj održanih časova u aktuelnoj kalendarskoj godini</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Nastavnik</td>
+                <td>@x.BrojCasova</td>
+                <td><a asp-action="Prikaz" asp-route-NastavnikId="@x.NastavnikId">Odaberi</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
